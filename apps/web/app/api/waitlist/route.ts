@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbxpdJXyEWW-KjBOAKufraFS6_VK3ltdP_GzoT89jBLu7eiFzFH2rOZMu33JvNUjXgGqQg/exec";
 
 export async function POST(req: Request) {
@@ -13,6 +11,8 @@ export async function POST(req: Request) {
   }
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     // Send email notification via Resend
     await resend.emails.send({
       from: "Nazara AI Waitlist <onboarding@resend.dev>",
