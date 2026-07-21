@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbxpdJXyEWW-KjBOAKufraFS6_VK3ltdP_GzoT89jBLu7eiFzFH2rOZMu33JvNUjXgGqQg/exec";
+const SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbwj0zLXFhDwW-QwHUllfxd4faPjrcBv7waGnX1FS8J0d1RP1nGXj_hI7irClbBkXMy8iA/exec";
 
 export async function POST(req: Request) {
   const { fullName, company, email } = await req.json();
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     // Send email notification via Resend
     await resend.emails.send({
       from: "Nazara AI Waitlist <onboarding@resend.dev>",
-      to: ["chineduobi423@gmail.com"],
+      to: ["albertkent@nazara.ai"],
       subject: `New Waitlist Signup: ${fullName}`,
       html: `
         <h2>New Early Access Signup</h2>
